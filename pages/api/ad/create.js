@@ -12,7 +12,8 @@ export default async function handler(req, res) {
       title: req.body.title,
       work: req.body.work,
       area: req.body.area,
-      description: req.body.description
+      description: req.body.description,
+      author: req.body.author
     };
 
     const db = (await clientPromise).db();

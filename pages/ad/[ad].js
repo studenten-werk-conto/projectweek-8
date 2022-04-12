@@ -1,15 +1,16 @@
 import clientPromise from "../../lib/mongodb";
 
-export default function Ad({ data }) {
-  console.log(data);
-  return <div>{JSON.stringify(data)}</div>;
+export default function Ad({ ad,author }) {
+  console.log(ad);
+  console.log(author)
+  return <div>{JSON.stringify(ad)}</div>;
 }
 
 export async function getServerSideProps(ctx) {
   const db = (await clientPromise).db();
-  const data = await db.collection("ads").findOne({ id: ctx.query.ad },{projection:{_id:0}});
-  console.log(data)
+  const ad = await db.collection("ads").findOne({ id: ctx.query.ad },{projection:{_id:0}});
+  const author = await db.collection("users").findOne({id: ad.author})
   return {
-    props: { data }, // will be passed to the page component as props
+    props: { ad,author }, 
   };
 }
