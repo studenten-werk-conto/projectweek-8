@@ -1,0 +1,18 @@
+.card {
+  border: 1px solid black;
+  border-radius: 1px;
+  margin: 20px;
+  box-shadow: 3px 2px 2px 2px gray;
+  display: inline-block;
+  overflow-wrap: break-word;
+}
+
+.title {
+  margin-bottom: 1px;
+}
+.work {
+}
+.area {
+}
+.description {
+}
