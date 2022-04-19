@@ -11,7 +11,6 @@ import Home from "../components/pages/home";
 export default function Frontpage({ data }) {
   const { data: session, status } = useSession();
 
-  console.log(status);
   const searchhandler = async (e) => {
     console.log(e)
     e.preventDefault();
