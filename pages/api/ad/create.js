@@ -2,22 +2,22 @@ import clientPromise from "../../../lib/mongodb";
 const crypto = require("crypto")
 
 export default async function handler(req, res) {
-  // console.log(req.req.body.title);
-
+  console.log(req.method)
   if (req.method === "POST") {
-      // const req.body = JSON.parse(req.req.body)
+      const body = await JSON.parse(req.body)
 
+      console.log(body)
     const ad = {
       id: crypto.randomUUID(),
-      title: req.body.title,
-      work: req.body.work,
-      area: req.body.area,
-      description: req.body.description,
-      author: req.body.author
+      title: body.title,
+      work: body.work,
+      area: body.area,
+      description: body.description,
+      author: body.author
     };
 
     const db = (await clientPromise).db();
-    db.collection("ads").insertOne(ad)
+    await db.collection("ads").insertOne(ad)
 
     res.status(200).send();
   }else{
