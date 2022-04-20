@@ -25,7 +25,7 @@ export default function Home(props) {
           </style.ProviderCard>
 
         </style.ProviderBox>
-        <style.Form onSubmit={searchhandler}>
+        <style.Form color="orange" onSubmit={searchhandler}>
           {wantsprovider === "receiver" ? (
             <>
               <input type="text" name="kaas" />
