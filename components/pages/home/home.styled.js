@@ -4,11 +4,14 @@ const Form = styled.form`
     background-color: orange;
 `
 const ProviderCard = styled.div`
-    background-color: gray;
+    background-color: ${props => props.active ? "blue" : "black"};
     border: 1px solid black;
     margin: 20px;
     height: 50px;
     width: 100px;
+    /* &:hover{
+        background-color: red;
+    } */
 `
 const Box = styled.div`
     background-color: purple;

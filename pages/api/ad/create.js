@@ -4,9 +4,6 @@ const crypto = require("crypto")
 export default async function handler(req, res) {
   console.log(req.body)
   if (req.method === "POST") {
-      // const body = await JSON.parse(req.body)
-
-      // console.log(body)
     const ad = {
       id: crypto.randomUUID(),
       title: req.body.title,
