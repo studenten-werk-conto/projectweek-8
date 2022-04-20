@@ -1,35 +1,28 @@
-import { useSession } from "next-auth/react";
-import {useState} from "react"
-import {Link} from "next/link"
-import {Fetch} from "../../../lib/fetch"
-// import {Createad} from "../components/adcard"
+import {useEffect, useState } from "react";
+import { Link } from "next/link";
+import Fetch from "../../../lib/fetch";
+import CreateAd from "../../createad/";
+import AdCard from "../../adcard/";
 
-export default function Overview() {
-    const { data: session, status } = useSession();
-    const [ShowCreateAd, SetShowCreateAd] = useState(false);
+export default function Overview_component() {
+  const [ShowCreateAd, SetShowCreateAd] = useState(false);
+  const [data, setData] = useState();
+
+  useEffect(() => {
+    async function load(){
+      const a = await Fetch("/api/ad/get");
+      setData(a)
+    };
+    load()
+  }, []);
+
   return (
-    <> 
-      {status === "authenticated" ? (
-        <Link href="/api/auth/signin">Sign in</Link>
-      ) : (
-        <Link href="/user">go to user panel</Link>
-      )}
-
-      {/* <button onClick={() => SetShowCreateAd(true)}>create new ad</button>
-      {ShowCreateAd ? <CreateAd /> : null} */}
+    <>
+      <button onClick={() => SetShowCreateAd(true)}>create new ad</button>
+      {ShowCreateAd ? <CreateAd /> : null}
 
       <br />
-      <div>
-        {/* {data.map((ad) => (
-          <AdCard key={ad.id} props={ad} />
-        ))} */}
-      </div>
+      <div>{data && data.map((ad) => <AdCard key={ad.id} props={ad} />)}</div>
     </>
   );
 }
-
-// export async function getServerSideProps (ctx) {
-//     const data = await Fetch("/api/ad/get");
-//     return { data };
-//   };
-  

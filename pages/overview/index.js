@@ -1,9 +1,5 @@
-import { useSession } from "next-auth/react";
-import Link from "next/link";
-import { useState } from "react";
-import AdCard from "../../components/adcard"
-import { Overview } from "../../components/pages/overview/overview.js";
+import Overview_component from "../../components/pages/overview/overview";
 
 export default function Page(props) {
-  return <Overview/>
+  return <Overview_component/>
 }

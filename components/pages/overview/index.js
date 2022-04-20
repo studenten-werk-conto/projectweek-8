@@ -1,3 +1,3 @@
-// import {Overview} from "./overview.js"
+import Overview_component from "./overview.js"
 
-// export default Overview;
+export default Overview_component;
