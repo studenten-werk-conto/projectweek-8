@@ -3,10 +3,12 @@ import style from "./createad.module.css"
 
 export default function CreateAd({data}){
     const sumbit = async (event) => {
-        console.log(event.target)
         event.preventDefault()
         await Fetch("/api/ad/create",{
             method:"POST",
+            headers: {
+                'Content-Type': 'application/json'
+            },
             body:JSON.stringify({
                 title: event.target.title.value,
                 work: event.target.work.value,
