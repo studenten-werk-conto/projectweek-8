@@ -28,7 +28,7 @@ const ProviderBox = styled.div`
     display: flex;
 `
 
-const Select = styled.div`
+const Select = styled.select`
     margin-right: 18px;
     width: 30%;
 `
