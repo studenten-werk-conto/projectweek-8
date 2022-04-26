@@ -28,9 +28,15 @@ const ProviderBox = styled.div`
     display: flex;
 `
 
-const Select = styled.select`
+const Select = styled.div`
     margin-right: 18px;
     width: 30%;
+`
+const Option = styled.div`
+
+`
+
+const Field = styled.div`
 `
 
 const InputField = styled.input`
@@ -39,9 +45,10 @@ const InputField = styled.input`
 `
 
 module.exports = {
-    Form,
+    Option,
     ProviderCard,
     Box,
+    Form,
     InputField,
     ProviderBox,
     Select,

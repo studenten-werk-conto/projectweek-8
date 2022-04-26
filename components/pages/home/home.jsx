@@ -6,7 +6,7 @@ import style from "./home.styled.js";
 
 export default function Home(props) {
   const [wantsprovider, setWantsprovider] = useState("wantprovider");
-  const { data: session, status } = useSession();
+  // const { data: session, status } = useSession();
   const router = useRouter()
 
   const sumbithandler = (event) => {
